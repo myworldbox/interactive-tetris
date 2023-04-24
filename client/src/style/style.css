@@ -408,27 +408,27 @@ a {
 }
 
 .zTetromino {
-  background-image: url(yellow.png);
+  background-image: url(../photo/yellow.png);
   background-size: contain;
 }
 
 .iTetromino {
-  background-image: url(blue.png);
+  background-image: url(../photo/blue.png);
   background-size: contain;
 }
 
 .oTetromino {
-  background-image: url(green.png);
+  background-image: url(../photo/green.png);
   background-size: contain;
 }
 
 .tTetromino {
-  background-image: url(pink.png);
+  background-image: url(../photo/pink.png);
   background-size: contain;
 }
 
 .lTetromino {
-  background-image: url(orange.png);
+  background-image: url(../photo/orange.png);
   background-size: contain;
 }
 
