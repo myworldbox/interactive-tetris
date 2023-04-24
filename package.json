@@ -2,7 +2,8 @@
   "scripts": {
     "start": "npx kill-port 8000 && node ./server/server.js",
     "commit": "npm run commit:npm",
-    "commit:npm": "git add . && git commit -a -m %npm_config_comment% && git push"
+    "commit:npm": "git add . && git commit -a -m %npm_config_comment% && git push",
+    "refresh": "git fetch && git pull"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",

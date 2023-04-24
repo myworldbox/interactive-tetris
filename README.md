@@ -81,4 +81,3 @@ npm start
     3. Success:
 
         `{ status: "success", message: "successfully logged in", user: { name: "oscar", username: "oscar916"} }`
-```
