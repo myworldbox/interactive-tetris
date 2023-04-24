@@ -1,13 +1,18 @@
-# COMP4021 Project
+# comp4021
 
-## Installation
+## init
 
 ```
-1. run npm install
-2. run npm start OR node ./backend/server.js
+# 1. install package 
+yarn
+npm install
+
+# 2. run the game
+yarn start
+npm start
 ```
 
-## Backend API Endpoints:
+## backend API
 
 - /register
 
@@ -76,10 +81,4 @@
     3. Success:
 
         `{ status: "success", message: "successfully logged in", user: { name: "oscar", username: "oscar916"} }`
-
-## Running the server:
-```
-1. Goto the root directory
-2. Run 'npm install'
-3. Run 'npm start'
 ```

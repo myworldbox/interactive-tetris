@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node ./server/server.js",
+    "start": "npx kill-port 8000 && node ./server/server.js",
     "commit": "npm run commit:npm",
     "commit:npm": "git add . && git commit -a -m %npm_config_comment% && git push"
   },
