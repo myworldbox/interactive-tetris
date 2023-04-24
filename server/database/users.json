@@ -10,5 +10,9 @@
  "ham": {
   "name": "Abraham",
   "password": "$2b$10$g4uFPQ575f/zal4X4Oc2Pe9UBCPgPuHA0GCzq7j3FKzkuLx6ogoG2"
+ },
+ "test": {
+  "name": "test",
+  "password": "$2b$10$/45urp.cvMG7dtPzxsTlAONsdM8S8Zdb.FEhn7XYZrInnyS.1WBXi"
  }
 }
