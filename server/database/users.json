@@ -10,13 +10,5 @@
  "ham": {
   "name": "Abraham",
   "password": "$2b$10$g4uFPQ575f/zal4X4Oc2Pe9UBCPgPuHA0GCzq7j3FKzkuLx6ogoG2"
- },
- "myworldbox": {
-  "name": "myworldbox",
-  "password": "$2b$10$KcoflKWUTRuHtIaB692.rOWZpf3AjtR.317L108KmGI1Fjd2409Fi"
- },
- "aaaaaaaa": {
-  "name": "aaaaaaaa",
-  "password": "$2b$10$wEhLnXTINNvPhwPAjWfSnueNeD78LI.qhG4pgBIgv818fIXQhWcfi"
  }
 }
