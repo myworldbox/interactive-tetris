@@ -22,7 +22,7 @@
       <div class="login-html">
         <img id="tetris" src="./src/photo/tetris-logo.png" alt="TETRIS" />
         <div id="headings">
-          <h1>Welcome to Tetris Battle!</h1>
+          <h1>Madly Tetris</h1>
         </div>
 
         <hr />
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="group">
-                  <input type="submit" class="button" value="Sign In" />
+                  <input type="submit" class="button" value="Submit" />
                 </div>
 
                 <div id="sign-in-message" style="color: red" class="warning center"></div>
@@ -56,7 +56,7 @@
                   <input id="sign-up-user" type="text" class="input" />
                 </div>
                 <div class="group">
-                  <label for="name" class="label">Name</label>
+                  <label for="name" class="label">Display Name</label>
                   <input id="sign-up-name" type="text" class="input" />
                 </div>
                 <div class="group">
@@ -64,7 +64,7 @@
                   <input id="sign-up-pass" type="password" class="input" data-type="password" />
                 </div>
                 <div class="group">
-                  <input type="submit" class="button" value="Sign Up" />
+                  <input type="submit" class="button" value="Submit" />
                 </div>
 
                 <div id="register-message" style="color: red" class="warning center"></div>
@@ -74,50 +74,38 @@
         </div>
 
         <div class="right">
-          <p class="DESINS">DESCRIPTION:</p>
-          <p style="font-size: 16px">You will pair up with another player!</p>
-          <p style="font-size: 16px">Get higher score to win the game!</p>
+          <p class="DESINS">Gameplay:</p>
+          <p style="font-size: 16px">This is a typical Tetris Game which you get points from clearing a Row.
+          <br>However, your component will be punlished with speeding up the block while you cleared a Row.
+          <br>Get Ready For You Eye Speed and Hand Speed!!!!
+          </p>
           <hr />
           <br />
-          <p class="DESINS">INSTRUCTION:</p>
-          <p style="font-size: 16px">Duration: 180s</p>
-          <table border="1" width="105%" cellpadding="5" cellspacing="5">
-            <tr>
-              <th>Action</th>
-              <th>Key</th>
-            </tr>
-            <tr>
-              <td>Move Left</td>
-              <td>Left Arrow</td>
-            </tr>
-            <tr>
-              <td>Move Right</td>
-              <td>Right Arrow</td>
-            </tr>
-            <tr>
-              <td>Rotate(clockwise)</td>
-              <td>Up Arrow</td>
-            </tr>
-            <tr>
-              <td>Soft Drop</td>
-              <td>Down Arrow</td>
-            </tr>
-            <tr>
-              <td>Cheat(stop)</td>
-              <td>Press spacebar</td>
-            </tr>
-          </table>
+          <p class="DESINS">Instruction:</p>
+          <p style="font-size: 16px">Maximum Time: 3 Minutes</p>
+          
+          <ul style="list-style: none; padding: 0;">
+            <li>Left: Left Arrow Key</li>
+            <li>Right: Right Arrow Key</li>
+            <li>Speeding Down: Down Arrow Key</li>
+            <li>Clockwise Rotation: "R" Key</li>
+            <li style="color: #ff0000; position: relative;" class="Cheat-box">
+              <span class="Cheat-text" style="padding: 0">Stop Falling: Space Bar</span>
+              <span class="cover"></span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 
   <script src="./src/action/registration.js"></script>
-  <script src="./src/action/authentication.js"></script>
-  <script src="./src/action/game.js"></script>
-  <script src="./src/action/socket.js"></script>
   <script src="./src/action/sprite.js"></script>
   <script src="/socket.io/socket.io.min.js"></script>
+  <script src="./src/action/game.js"></script>
+  <script src="./src/action/socket.js"></script>
+  <script src="./src/action/authentication.js"></script>
+  
   
   <script>
     $(document).ready(function () {
@@ -125,7 +113,7 @@
       Sprite.initialize();
 
       $("#sign-in-form").on("submit", (e) => {
-        // Do not submit the form
+        
         e.preventDefault();
 
         // Get the input fields
@@ -137,9 +125,9 @@
           username,
           password,
           () => {
-            $(".login-page").hide();
-            $("#bgVideo").hide();
-            $(".game-page").show();
+            $(".login-page").css("display", "none");
+            $("#bgVideo").css("display", "none");
+            $(".game-page").css("display", "block");
             Socket.connect();
           },
           (error) => {
@@ -148,30 +136,40 @@
         );
       });
 
-      // Submit event for the register form
+      // Registration
       $("#sign-up-form").on("submit", (e) => {
-        // Do not submit the form
+        
         e.preventDefault();
 
-        // Get the input fields
+        // Input data
         const username = $("#sign-up-user").val().trim();
         const name = $("#sign-up-name").val().trim();
         const password = $("#sign-up-pass").val().trim();
 
-        // Send a register request
+        // Register request
         Registration.register(
           username,
           name,
           password,
           () => {
             $("#sign-up-form").get(0).reset();
-            $("#register-message").text("You can sign in now.");
+            $("#register-message").text("Successfully Register. Please Sign In.");
           },
           (error) => {
             $("#register-message").text(error);
           }
         );
       });
+
+      Authentication.validate(
+        () => {
+          $(".login-page").css("display", "none");
+          $("#bgVideo").css("display", "none");
+          $(".game-page").css("display", "block");
+          Socket.connect();
+        },
+        () => { }
+      );
 
       $("#start-button").on("click", () => {
         Socket.join();
@@ -182,21 +180,12 @@
         window.location.reload();
       });
 
-      Authentication.validate(
-        () => {
-          $(".login-page").hide();
-          $("#bgVideo").hide();
-          $(".game-page").show();
-          Socket.connect();
-        },
-        () => { }
-      );
     });
   </script>
 
   <div id="waitingModal" class="modal">
     <div class="modal-content" id="waitingModals">
-      Waiting for other players
+      Another player is required to start...
     </div>
   </div>
 
@@ -208,7 +197,8 @@
         <div id="name-left" style="display: none;"></div>
         <div class="score-grid gradient-border">
           <h3 class="game-h3">
-            <div id="username-left"></div>
+            <div>User:<div id="username-left"></div></div>
+            
             <span id="score-left">Score: 0</span>
           </h3>
         </div>
@@ -216,11 +206,12 @@
         <div class="round-time-bar" id="round-time-bar-left" data-style="smooth">
           <div></div>
         </div>
-        <div class="container">
+        <div class = "container">
           <div class="lines-grid">
-            <h4 class="game-h4">Time Left: <span class="timer">180</span></h4>
             <h4 class="game-h4">Lines: <span id="line-left">0</span></h4>
           </div>
+        </div>
+        <div class="container">
           <div class="mini-grid current-mini">
             <div></div>
             <div></div>
@@ -239,6 +230,7 @@
             <div></div>
             <div></div>
           </div>
+          <canvas width="100" height="40"></canvas>
         </div>
 
         <div class="container">
@@ -458,16 +450,18 @@
       </div>
 
       <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <button class="custom-btn btn-start" id="start-button">Start</button>
-        <h1 class="game-h1">T e t r i s</h1>
-        <canvas width="200" height="40"></canvas>
-
+        
+        <button class="custom-btn btn-start" id="start-button">Let's Go</button>
+        <h1 class="game-h1">Madly</h1>
+        <h1 class = "game-h1">Tetris</h1>
+        <h1 class="game-h4">Time:<span class="timer">180</span><span> seconds</span></h1>        
       </div>
 
       <div class="board-right">
         <div class="score-grid gradient-border">
           <div id="name-right" style="display: none"></div>
           <h3 class="game-h3">
+            <div id = "username-right">USER:</div>
             <div id="username-right"></div>
             <span id="score-right">Score: 0</span>
           </h3>
@@ -478,9 +472,10 @@
         </div>
         <div class="container">
           <div class="lines-grid">
-            <h4 class="game-h4">Time Left: <span class="timer">180</span></h4>
             <h4 class="game-h4">Lines: <span id="line-right">0</span></h4>
           </div>
+        </div>
+        <div class="container">
           <div class="mini-grid opponent-mini">
             <div></div>
             <div></div>
@@ -499,6 +494,7 @@
             <div></div>
             <div></div>
           </div>
+          
         </div>
 
         <div class="container">
@@ -723,12 +719,12 @@
     <div class="card">
       <section class="card-info card-section">
         <section class="user row">
-          <h1 class="user-header" id="user"></h1>
+          <h1 class="user-header" id="user" style="border: #00e1ff;"></h1>
         </section>
         <h1>VS</h1>
 
         <div>
-          <h1 id="opponent"></h1>
+          <h1 id="opponent" style="border: #00e1ff;"></h1>
         </div>
         <hr />
         <div>
@@ -758,7 +754,7 @@
       </section>
 
       <section class="card-details card-section">
-        <h1 class="menu" style="color: black">Leaderboard</h1>
+        <h1 class="menu" style="color: black">Best Players:</h1>
 
         <dl class="leaderboard">
           <dt>

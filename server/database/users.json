@@ -1,4 +1,8 @@
 {
+ "123": {
+  "name": "123",
+  "password": "$2b$10$QsES2MO6cbxOk2aawhxAqeCsGgMDnezByXLnWzOL5jilIQMX0rtkm"
+ },
  "oscar916": {
   "name": "oscar",
   "password": "$2b$10$5cwCDY3kPg9ZhuoIgRbPh.6lqoUQdK7QQK3owaIVcND/b3MVsQjWS"
