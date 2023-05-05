@@ -1,108 +1,112 @@
-const Sprite = (function () {
-  let canvas;
-  let ctx;
+const AnimatedCharacter = (() => {
+  let cnv;
+  let ctxt;
 
-  const initialize = () => {
-    canvas = document.querySelector('canvas');
-    ctx = canvas.getContext('2d');
-    loadImage();
+  const init = () => {
+    cnv = document.querySelector('canvas');
+    ctxt = cnv.getContext('2d');
+    loadSprite();
+  };
+
+  let keysPressed = {};
+  let currentDir = 3;
+  let loopIndex = 0;
+  let frameCounter = 0;
+  let posX = 0;
+  let posY = 0;
+  let sprite = new Image();
+
+  window.addEventListener('keydown', onKeyDown);
+  window.addEventListener('keyup', onKeyUp);
+
+  function onKeyDown(event) {
+    keysPressed[event.key] = true;
   }
 
-  let SCALE = 1;
-  const WIDTH = 64;
-  const HEIGHT = 64;
-  const SCALED_WIDTH = SCALE * WIDTH;
-  const SCALED_HEIGHT = SCALE * HEIGHT;
-  const CYCLE_LOOP = [0, 1, 2, 3];
-  const FACING_DOWN = 3;
-  const FACING_UP = 0;
-  const FACING_LEFT = 2;
-  const FACING_RIGHT = 1;
-  const FRAME_LIMIT = 12;
-  const MOVEMENT_SPEED = 1;
-
-  let keyPresses = {};
-  let currentDirection = FACING_DOWN;
-  let currentLoopIndex = 0;
-  let frameCount = 0;
-  let positionX = 0;
-  let positionY = 0;
-  let img = new Image();
-
-  window.addEventListener('keydown', keyDownListener);
-  function keyDownListener(event) {
-      keyPresses[event.key] = true;
+  function onKeyUp(event) {
+    keysPressed[event.key] = false;
   }
 
-  window.addEventListener('keyup', keyUpListener);
-  function keyUpListener(event) {
-      keyPresses[event.key] = false;
-  }
-
-  function loadImage() {
-    img.src = 'https://opengameart.org/sites/default/files/zombiespritesheetci3_0.png';
-    img.onload = function() {
-      window.requestAnimationFrame(gameLoop);
+  function loadSprite() {
+    sprite.src = './src/photo/zombie.png';
+    sprite.onload = () => {
+      setInterval(runAnimation, 1000 / 30); 
     };
   }
 
-  function drawFrame(frameX, frameY, canvasX, canvasY) {
-    ctx.drawImage(img,
-                  frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
-                  canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT);
+  function renderFrame(frameX, frameY, canvasX, canvasY) {
+    ctxt.drawImage(
+      sprite,
+      frameX * 64, frameY * 64, 64, 64,
+      canvasX, canvasY, 64, 64
+    );
   }
 
+  function runAnimation() {
+    ctxt.clearRect(0, 0, cnv.width, cnv.height);
 
-  function gameLoop() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let moved = false;
 
-    let hasMoved = false;
-
-    if (keyPresses.ArrowUp) {
-      moveCharacter(0, -MOVEMENT_SPEED, FACING_UP);
-      hasMoved = true;
-    } else if (keyPresses.ArrowDown) {
-      moveCharacter(0, MOVEMENT_SPEED, FACING_DOWN);
-      hasMoved = true;
+    if (keysPressed.ArrowUp) {
+      moveSprite(0, -2, 0);
+      moved = true;
+    } else if (keysPressed.ArrowDown) {
+      moveSprite(0, 2, 3);
+      moved = true;
     }
 
-    if (keyPresses.ArrowLeft) {
-      moveCharacter(-MOVEMENT_SPEED, 0, FACING_LEFT);
-      hasMoved = true;
-    } else if (keyPresses.ArrowRight) {
-      moveCharacter(MOVEMENT_SPEED, 0, FACING_RIGHT);
-      hasMoved = true;
+    if (keysPressed.ArrowLeft) {
+      moveSprite(-2, 0, 2);
+      moved = true;
+    } else if (keysPressed.ArrowRight) {
+      moveSprite(2, 0, 1);
+      moved = true;
     }
 
-    if (hasMoved) {
-      frameCount++;
-      if (frameCount >= FRAME_LIMIT) {
-        frameCount = 0;
-        currentLoopIndex++;
-        if (currentLoopIndex >= CYCLE_LOOP.length) {
-          currentLoopIndex = 0;
+    if (keysPressed.R || keysPressed.r) {
+      randomPosition();
+    }
+
+    if (moved) {
+      frameCounter++;
+      if (frameCounter >= 12) {
+        frameCounter = 0;
+        loopIndex++;
+        if (loopIndex >= [0, 1, 2, 3].length) {
+          loopIndex = 0;
         }
       }
     }
-    
-    if (!hasMoved) {
-      currentLoopIndex = 0;
+
+    if (!moved) {
+      loopIndex = 0;
     }
 
-    drawFrame(CYCLE_LOOP[currentLoopIndex], currentDirection, positionX, positionY);
-    window.requestAnimationFrame(gameLoop);
+    renderFrame(
+      [0, 1, 2, 3][loopIndex], currentDir, posX, posY
+    );
   }
 
-  function moveCharacter(deltaX, deltaY, direction) {
-    if (positionX + deltaX > 0 && positionX + SCALED_WIDTH + deltaX < canvas.width) {
-      positionX += deltaX;
+  function moveSprite(deltaX, deltaY, direction) {
+    if (
+      posX + deltaX > 0 &&
+      posX + 64 + deltaX < cnv.width
+    ) {
+      posX += deltaX;
     }
-    if (positionY + deltaY > 0 && positionY + SCALED_HEIGHT + deltaY < canvas.height) {
-      positionY += deltaY;
+    if (
+      posY + deltaY > 0 &&
+      posY + 64 + deltaY < cnv.height
+    ) {
+      posY += deltaY;
     }
-    currentDirection = direction;
+    currentDir = direction;
   }
 
-  return {initialize}
-})()
+  function randomPosition() {
+    posX = Math.floor(Math.random() * (cnv.width - 64));
+    posY = Math.floor(Math.random() * (cnv.height - 64));
+  }
 
+  return { init };
+})();
