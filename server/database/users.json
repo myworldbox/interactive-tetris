@@ -14,5 +14,9 @@
  "test": {
   "name": "test",
   "password": "$2b$10$/45urp.cvMG7dtPzxsTlAONsdM8S8Zdb.FEhn7XYZrInnyS.1WBXi"
+ },
+ "test2": {
+  "name": "test2",
+  "password": "$2b$10$cH95LqFxs4TgevP0ZvRjIO1mPxxS0sb5bC6UaA8uw7kb5sUGGxhHK"
  }
 }
