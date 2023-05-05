@@ -15,7 +15,7 @@ const Registration = function () {
         }
       })
       .catch((err) => {
-        console.log("Error!");
+        console.log("Error on Registraion!");
       });
   };
   return { register };

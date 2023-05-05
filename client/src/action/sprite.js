@@ -5,21 +5,19 @@ const Sprite = (function () {
   const initialize = () => {
     canvas = document.querySelector('canvas');
     ctx = canvas.getContext('2d');
-
     loadImage();
-
   }
 
-  const SCALE = 2;
-  const WIDTH = 16;
-  const HEIGHT = 18;
+  let SCALE = 1;
+  const WIDTH = 64;
+  const HEIGHT = 64;
   const SCALED_WIDTH = SCALE * WIDTH;
   const SCALED_HEIGHT = SCALE * HEIGHT;
-  const CYCLE_LOOP = [0, 1, 0, 2];
-  const FACING_DOWN = 0;
-  const FACING_UP = 1;
+  const CYCLE_LOOP = [0, 1, 2, 3];
+  const FACING_DOWN = 3;
+  const FACING_UP = 0;
   const FACING_LEFT = 2;
-  const FACING_RIGHT = 3;
+  const FACING_RIGHT = 1;
   const FRAME_LIMIT = 12;
   const MOVEMENT_SPEED = 1;
 
@@ -42,7 +40,7 @@ const Sprite = (function () {
   }
 
   function loadImage() {
-    img.src = 'https://opengameart.org/sites/default/files/Green-Cap-Character-16x18.png';
+    img.src = 'https://opengameart.org/sites/default/files/zombiespritesheetci3_0.png';
     img.onload = function() {
       window.requestAnimationFrame(gameLoop);
     };

@@ -26,7 +26,7 @@ const Authentication = (function () {
         }
       })
       .catch((err) => {
-        console.log("Error!");
+        console.log("Error on Sign In!");
       });
   };
 
@@ -44,7 +44,7 @@ const Authentication = (function () {
         } else if (onError) onError(json.error);
       })
       .catch((err) => {
-        console.log("Error!");
+        console.log("Error on Validation!");
       });
   };
 
