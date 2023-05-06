@@ -44,29 +44,11 @@ git clone https://github.com/myworldbox/comp4021.git
 /
 
 # user verification and authentication - ( firebase )
-/api/auth
-
-# well-defined - ( *key / myworldbox / sha256 / aes256 / rsa ) function
-/api/crypto
-
-# database - ( firebase / google sheet / mongodb / redis ) - [ CRUD ] operation
-/api/database
-
-# json visualization
-/api/json
-```
-
-
-## backend API
-
-- /register
-
-  Request Body:
-
-  e.g. `{
-  "username": "oscar",
-  "name": "Oscar",
-  "password": "pwd"
+/register
+`{
+  "username": "victor",
+  "name": "Victor",
+  "password": "password"
 }`
 
   Response:
@@ -96,21 +78,19 @@ git clone https://github.com/myworldbox/comp4021.git
         User will be added to `users.json`
 
         e.g. `{
-            "oscar916": {
-            "name": "oscar",
-            "password": "$2b$10$5cwCDY3kPg9ZhuoIgRbPh.6lqoUQdK7QQK3owaIVcND/b3MVsQjWS"
+            "victor": {
+            "name": "Victor",
+            "password": "hash"
             },
         }`
   
         `{ status: "success", message: "users has been created" }`
 
-- /signin
-
-  Request Body:
-
-  e.g. `{
-  "username": "oscar916",
-  "password": "pwd"
+# well-defined - ( *key / myworldbox / sha256 / aes256 / rsa ) function
+/signIn
+`{
+  "username": "victor",
+  "password": "password"
 }`
 
   Response:
@@ -125,7 +105,8 @@ git clone https://github.com/myworldbox/comp4021.git
 
     3. Success:
 
-        `{ status: "success", message: "successfully logged in", user: { name: "oscar", username: "oscar916"} }`
+        `{ status: "success", message: "successfully logged in", user: { name: "Victor", username: "victor"} }`
+```
 
 ## vercel deployment
 
