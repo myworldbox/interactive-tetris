@@ -1,6 +1,6 @@
 ## Interactive Tetris
 
-HTML + CSS + JavaScript + Express.JS + Socket.io
+HTML + CSS + JavaScript + Docker + Express.JS + Socket.io
 
 
 ## Quick start
