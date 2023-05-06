@@ -43,13 +43,14 @@ git clone https://github.com/myworldbox/comp4021.git
 
 #  register function
 /register
+
 `{
   "username": "victor",
   "name": "Victor",
   "password": "password"
 }`
 
-  Response:
+Response:
 
   1. Username is empty:
   
@@ -85,13 +86,14 @@ git clone https://github.com/myworldbox/comp4021.git
         `{ status: "success", message: "users has been created" }`
 
 # sign in function
+
 /signIn
 `{
   "username": "victor",
   "password": "password"
 }`
 
-  Response:
+Response:
 
     1. Username does not exists:
 
