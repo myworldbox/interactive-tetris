@@ -35,15 +35,13 @@ git clone https://github.com/myworldbox/comp4021.git
 ## api
 
 ```bash
-# function can be triggered by both GET / POST request
-# fill the below variable with json format displayed below
-# [ GET ] - req.query.eject
+# function can be triggered by both POST request
 # [ POST ] - req.body
 
 # root
 /
 
-# user verification and authentication - ( firebase )
+#  register function
 /register
 `{
   "username": "victor",
@@ -86,7 +84,7 @@ git clone https://github.com/myworldbox/comp4021.git
   
         `{ status: "success", message: "users has been created" }`
 
-# well-defined - ( *key / myworldbox / sha256 / aes256 / rsa ) function
+# sign in function
 /signIn
 `{
   "username": "victor",
