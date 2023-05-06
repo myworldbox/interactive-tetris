@@ -1,30 +1,10 @@
 {
- "123": {
-  "name": "123",
-  "password": "$2b$10$QsES2MO6cbxOk2aawhxAqeCsGgMDnezByXLnWzOL5jilIQMX0rtkm"
- },
- "oscar916": {
-  "name": "oscar",
-  "password": "$2b$10$5cwCDY3kPg9ZhuoIgRbPh.6lqoUQdK7QQK3owaIVcND/b3MVsQjWS"
- },
- "kel": {
-  "name": "Kelvin",
-  "password": "$2b$10$Zg3Syp1mM0VgoRp8yshBMuwgTcoZF7UEEBKMc9RjNU1hhwB3WC02K"
- },
- "ham": {
-  "name": "Abraham",
-  "password": "$2b$10$g4uFPQ575f/zal4X4Oc2Pe9UBCPgPuHA0GCzq7j3FKzkuLx6ogoG2"
- },
- "test": {
-  "name": "test",
-  "password": "$2b$10$/45urp.cvMG7dtPzxsTlAONsdM8S8Zdb.FEhn7XYZrInnyS.1WBXi"
- },
- "test2": {
-  "name": "test2",
-  "password": "$2b$10$cH95LqFxs4TgevP0ZvRjIO1mPxxS0sb5bC6UaA8uw7kb5sUGGxhHK"
- },
  "aaaaaaaa": {
   "name": "aaaaaaaa",
   "password": "$2b$10$047nlce98F87uSaO4VG4b.vSHJul8TzwluyqWgkOEr.CGBELO.w4C"
+ },
+ "bbbbbbbb": {
+  "name": "bbbbbbbb",
+  "password": "$2b$10$GNj2tM08T495mvyFs0sLGOYAUo1K7NZVZiUKzXnaiTKH7twFMegYe"
  }
 }

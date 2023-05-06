@@ -1,5 +1,5 @@
-const Registration = function () {
-  const register = function (username, name, password, onSuccess, onError) {
+const Registration = (() => {
+  const register = (username, name, password, onSuccess, onError) => {
     const json = JSON.stringify({ username, name, password });
     fetch("/register", {
       method: "POST",
@@ -7,16 +7,16 @@ const Registration = function () {
       body: json,
     })
       .then((res) => res.json())
-      .then((json) => {
-        if (json.status == "error") {
-          if (onError) onError(json.error);
+      .then(({ status, error }) => {
+        if (status === "error") {
+          onError && onError(error);
         } else {
-          if (onSuccess) onSuccess();
+          onSuccess && onSuccess();
         }
       })
       .catch((err) => {
-        console.log("Error on Registraion!");
+        console.log("Error on Registration!");
       });
   };
   return { register };
-}();
+})();
