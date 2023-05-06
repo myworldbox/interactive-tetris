@@ -1,16 +1,61 @@
-# comp4021
+## Interactive Tetris
 
-## init
+HTML + CSS + JavaScript + Express.JS + Socket.io
 
+
+## Quick start
+
+```bash
+# clone repo
+git clone https://github.com/myworldbox/comp4021.git
+
+# download module
+1. npm install
+2. yarn
+3. docker build . -t interactive-tetris
+
+# start development
+1. npm start
+2. yarn start
+3. docker run -d -p 8000:8000 interactive-tetris
 ```
-# 1. install package 
-yarn
-npm install
 
-# 2. run the game
-yarn start
-npm start
+## useful command
+
+```bash
+# quick github commit
+1. npm commit
+2. yarn commit
+
+# sync latest change from GitHub
+1. npm refresh
+2. yarn refresh
 ```
+
+## api
+
+```bash
+# function can be triggered by both GET / POST request
+# fill the below variable with json format displayed below
+# [ GET ] - req.query.eject
+# [ POST ] - req.body
+
+# root
+/
+
+# user verification and authentication - ( firebase )
+/api/auth
+
+# well-defined - ( *key / myworldbox / sha256 / aes256 / rsa ) function
+/api/crypto
+
+# database - ( firebase / google sheet / mongodb / redis ) - [ CRUD ] operation
+/api/database
+
+# json visualization
+/api/json
+```
+
 
 ## backend API
 
@@ -81,3 +126,7 @@ npm start
     3. Success:
 
         `{ status: "success", message: "successfully logged in", user: { name: "oscar", username: "oscar916"} }`
+
+## vercel deployment
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/project?template=https://github.com/myworldbox/comp4021)
