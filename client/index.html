@@ -76,14 +76,14 @@
         <div class="right">
           <p class="DESINS">Gameplay:</p>
           <p style="font-size: 16px">This is a typical Tetris Game which you get points from clearing a Row.
-          <br>However, your component will be punlished with speeding up the block while you cleared a Row.
-          <br>Get Ready For You Eye Speed and Hand Speed!!!!
+            <br>However, your component will be punlished with speeding up the block while you cleared a Row.
+            <br>Get Ready For You Eye Speed and Hand Speed!!!!
           </p>
           <hr />
           <br />
           <p class="DESINS">Instruction:</p>
           <p style="font-size: 16px">Maximum Time: 3 Minutes</p>
-          
+
           <ul style="list-style: none; padding: 0;">
             <li>Left: Left Arrow Key</li>
             <li>Right: Right Arrow Key</li>
@@ -99,90 +99,6 @@
     </div>
   </div>
 
-  <script src="./src/action/registration.js"></script>
-  <script src="./src/action/sprite.js"></script>
-  <script src="/socket.io/socket.io.min.js"></script>
-  <script src="./src/action/game.js"></script>
-  <script src="./src/action/socket.js"></script>
-  <script src="./src/action/authentication.js"></script>
-  
-  
-  <script>
-    $(document).ready(function () {
-      Game.initialize();
-      AnimatedCharacter.init();
-
-      $("#sign-in-form").on("submit", (e) => {
-        
-        e.preventDefault();
-
-        // Get the input fields
-        const username = $("#sign-in-user").val().trim();
-        const password = $("#sign-in-pass").val().trim();
-
-        // Send a signin request
-        Authentication.signin(
-          username,
-          password,
-          () => {
-            $(".login-page").css("display", "none");
-            $("#bgVideo").css("display", "none");
-            $(".game-page").css("display", "block");
-            Socket.connect();
-          },
-          (error) => {
-            $("#sign-in-message").text(error);
-          }
-        );
-      });
-
-      // Registration
-      $("#sign-up-form").on("submit", (e) => {
-        
-        e.preventDefault();
-
-        // Input data
-        const username = $("#sign-up-user").val().trim();
-        const name = $("#sign-up-name").val().trim();
-        const password = $("#sign-up-pass").val().trim();
-
-        // Register request
-        Registration.register(
-          username,
-          name,
-          password,
-          () => {
-            $("#sign-up-form").get(0).reset();
-            $("#register-message").text("Successfully Register. Please Sign In.");
-          },
-          (error) => {
-            $("#register-message").text(error);
-          }
-        );
-      });
-
-      Authentication.validate(
-        () => {
-          $(".login-page").css("display", "none");
-          $("#bgVideo").css("display", "none");
-          $(".game-page").css("display", "block");
-          Socket.connect();
-        },
-        () => { }
-      );
-
-      $("#start-button").on("click", () => {
-        Socket.join();
-        $("#start-button").prop("disabled", true);
-      });
-
-      $("#restart-btn").on("click", () => {
-        window.location.reload();
-      });
-
-    });
-  </script>
-
   <div id="waitingModal" class="modal">
     <div class="modal-content" id="waitingModals">
       Another player is required to start...
@@ -197,8 +113,9 @@
         <div id="name-left" style="display: none;"></div>
         <div class="score-grid gradient-border">
           <h3 class="game-h3">
-            <div>User:<div id="username-left"></div></div>
-            
+            <div>User:<div id="username-left"></div>
+            </div>
+
             <span id="score-left">Score: 0</span>
           </h3>
         </div>
@@ -206,7 +123,7 @@
         <div class="round-time-bar" id="round-time-bar-left" data-style="smooth">
           <div></div>
         </div>
-        <div class = "container">
+        <div class="container">
           <div class="lines-grid">
             <h4 class="game-h4">Lines: <span id="line-left">0</span></h4>
           </div>
@@ -230,7 +147,7 @@
             <div></div>
             <div></div>
           </div>
-          
+
         </div>
 
         <div class="container">
@@ -450,12 +367,12 @@
       </div>
 
       <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        
+
         <button class="custom-btn btn-start" id="start-button">Let's Go</button>
         <h1 class="game-h1">Madly</h1>
-        <h1 class = "game-h1">Tetris</h1>
-        <h1 class="game-h4">Time:<span class="timer">180</span><span> seconds</span></h1>    
-        <canvas width="500" height="120"></canvas>    
+        <h1 class="game-h1">Tetris</h1>
+        <h1 class="game-h4">Time:<span class="timer">180</span><span> seconds</span></h1>
+        <canvas width="500" height="120"></canvas>
       </div>
 
       <div class="board-right">
@@ -495,7 +412,7 @@
             <div></div>
             <div></div>
           </div>
-          
+
         </div>
 
         <div class="container">
@@ -800,7 +717,15 @@
     </div>
   </div>
 
+  <script src="./src/action/registration.js"></script>
+  <script src="./src/action/sprite.js"></script>
+  <script src="/socket.io/socket.io.min.js"></script>
+  <script src="./src/action/game.js"></script>
+  <script src="./src/action/socket.js"></script>
+  <script src="./src/action/authentication.js"></script>
+  <script src="./src/action/jquery.js"></script>
   <script src="./src/action/gameFinish.js"></script>
+
 </body>
 
 </html>
