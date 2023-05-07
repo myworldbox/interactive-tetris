@@ -1,4 +1,5 @@
 {
+  "license": "2020 © myworldbox.",
   "scripts": {
     "start": "npx kill-port 8000 && node ./server/server.js",
     "commit": "npm run commit:npm",
