@@ -1,10 +1,22 @@
 [
- {
-  "username": "Rossiter",
-  "score": 999
- },
- {
-  "username": "Gibson",
-  "score": 998
- }
+    {
+        "username": "Rossiter",
+        "score": 999
+    },
+    {
+        "username": "Gibson",
+        "score": 998
+    },
+    {
+        "username": "Victor",
+        "score": 100
+    },
+    {
+        "username": "Anson",
+        "score": 50
+    },
+    {
+        "username": "Kyle",
+        "score": 40
+    }
 ]
