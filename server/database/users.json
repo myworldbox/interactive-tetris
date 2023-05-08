@@ -1,4 +1,8 @@
 {
+ "123": {
+  "name": "123",
+  "password": "$2b$10$8nMWCySn5odgX9bQkOFb1OSptv4cNKxYuHlgixpZFJxBxzAP3a1HC"
+ },
  "aaaaaaaa": {
   "name": "aaaaaaaa",
   "password": "$2b$10$047nlce98F87uSaO4VG4b.vSHJul8TzwluyqWgkOEr.CGBELO.w4C"
@@ -6,5 +10,9 @@
  "bbbbbbbb": {
   "name": "bbbbbbbb",
   "password": "$2b$10$GNj2tM08T495mvyFs0sLGOYAUo1K7NZVZiUKzXnaiTKH7twFMegYe"
+ },
+ "test": {
+  "name": "test",
+  "password": "$2b$10$YB5GMmw6y3KgeUJQu5McsO/MP8JfyQD149cFADT7xFdx1U90f3Vmi"
  }
 }
