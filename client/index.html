@@ -4,8 +4,10 @@
 <head>
   <title>COMP4021 Project</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Play" />
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Press+Start+2P" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
   <link
     href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Montserrat&family=Nabla&family=Press+Start+2P&display=swap"
     rel="stylesheet" />
@@ -370,11 +372,14 @@
 
       <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
 
-        <button class="custom-btn btn-start" id="start-button">Let's Go</button>
         <h1 class="game-h1">Interactive</h1>
         <h1 class="game-h1">Tetris</h1>
         <h1 class="game-h4">Time:<span class="timer">180</span><span> seconds</span></h1>
+
+        
+        <button class="custom-btn btn-start" style="margin: 50px;" id="start-button">Let's Go</button>
         <canvas width="200" height="200"></canvas>
+        
       </div>
 
       <div class="board-right">

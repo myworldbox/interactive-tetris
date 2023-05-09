@@ -1,6 +1,6 @@
 .game-page {
 	display: none;
-	background: linear-gradient(90deg, #141617 0%, #e7fb8c 35%, #04650f 100%);
+	background: linear-gradient(90deg, #519e37 0%, #253e7d 35%, #0393a6 100%);
 	height: 100%;
 }
 
@@ -18,7 +18,6 @@
 	position: relative;
 	text-align: center;
 	font-size: 16px;
-	font-family: "Press Start 2P", cursive;
 }
 
 .game-h4 {
@@ -26,7 +25,6 @@
 	position: relative;
 	text-align: center;
 	font-size: 10px;
-	font-family: "Press Start 2P", cursive;
 }
 
 #username-left {
@@ -37,7 +35,6 @@
 	border-radius: 5px;
 	color: #fff;
 	cursor: pointer;
-	font-family: "Press Start 2P", cursive;
 	font-weight: 500;
 	height: 40px;
 	padding: 10px 25px;
@@ -184,7 +181,7 @@
 	animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))
 		forwards;
 	transform-origin: left center;
-	background: linear-gradient(0.25turn, #aba957, 20%, #262a25);
+	background: linear-gradient(0.25turn, #409eff, 20%, #67c23a);
 	display: flex;
 	flex-wrap: wrap;
 }
