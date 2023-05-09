@@ -167,6 +167,11 @@ io.on("connection", (socket) => {
     if (socket.request.session.user) io.emit("game over");
     onlineUsers = [];
   });
+
+  socket.on("send affect other", (username) =>{
+    io.emit("affect other", username);
+  });
+
 });
 
 httpServer.listen(8000, () => {

@@ -78,3 +78,19 @@ h2 {
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
+
+.cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff;
+	cursor: pointer;
+	transition: opacity 0.2s;
+  }
+  
+  .Cheat-box:hover .cover {
+	opacity: 0;
+  }
+  

@@ -23,13 +23,13 @@ const gameFinish = () => {
   updateRanking(player_username, score);
 
   if (line_left < line_right) {
-    document.getElementById("result").innerHTML = "You lost..."; //lose
+    document.getElementById("result").innerHTML = "Hello loser"; //lose
   }
   if (line_left == line_right) {
-    document.getElementById("result").innerHTML = "It's a DRAW!"; //draw
+    document.getElementById("result").innerHTML = "drawwwwww"; //draw
   }
   if (line_left > line_right) {
-    document.getElementById("result").innerHTML = "You WIN"; //lose
+    document.getElementById("result").innerHTML = "Winner Winner Chicken Dinner"; //lose
   }
   //lines and scores
   document.getElementById("score").innerHTML = line_left * 10;

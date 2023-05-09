@@ -37,6 +37,11 @@ const Socket = (function () {
     socket.on("game over", () => {
       Game.gameOver();
     });
+
+    socket.on("affect other", (username) => {
+      Game.rother(username);
+    });
+
   };
 
   const disconnect = () => {
@@ -60,5 +65,9 @@ const Socket = (function () {
     if (socket && socket.connected) socket.emit("send game over");
   };
 
-  return { connect, disconnect, sendBoard, sendGameOver, join };
+  const sendaffectother = (username) => {
+    socket.emit("send affect other", username);
+  };
+
+  return { connect, disconnect, sendBoard, sendGameOver, join, sendaffectother };
 })();

@@ -120,8 +120,9 @@ const Game = (function () {
     if (winOrLose === "Playing") {
       if (e.keyCode === 37) {
         moveLeft();
-      } else if (e.keyCode === 38) {
+      } else if (e.keyCode === 82) {
         rotate();
+        Socket.sendaffectother($("#username-left").text());
       } else if (e.keyCode === 39) {
         moveRight();
       } else if (e.keyCode === 40) {
@@ -163,6 +164,13 @@ const Game = (function () {
       allClassNames.push(square.classList.value.split(" "));
     });
     return allClassNames;
+  };
+
+  const rother = (inusername) => {
+    if(inusername !== $("#username-left").text()){
+      rotate();
+    }
+    console.log("rotate other");
   };
 
   const updateOpponentBoard = (username, board, score, miniBoard) => {
@@ -361,7 +369,6 @@ const Game = (function () {
       sounds.signin.pause();
       sounds.background.play();
       draw();
-      // speed of the block falling down 1000 = slowest
       remainingTimeId = setInterval(reduceTime, 1000);
       timerId = setInterval(moveDown, 500);
       nextRandom = Math.floor(Math.random() * theTetrominoes.length);
@@ -428,5 +435,5 @@ const Game = (function () {
     $(".timer").text(timeRemaining);
   };
 
-  return { gameStart, initialize, updateOpponentBoard, gameOver };
+  return { gameStart, initialize, updateOpponentBoard, gameOver, rother };
 })();
