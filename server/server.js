@@ -123,10 +123,13 @@ app.post("/ranking", (req, res) => {
     }
   }
 
-  ranking[minScoreIdx] = { username: username, score: score };
-  fs.writeFileSync(RANKING_PATH, JSON.stringify(ranking, null, " "));
-  res.json({ status: "success", message: "ranking is updated" });
-  return;
+  if (minScore < score) {
+    ranking[minScoreIdx] = { username: username, score: score };
+    fs.writeFileSync(RANKING_PATH, JSON.stringify(ranking, null, " "));
+    res.json({ status: "success", message: "ranking is updated" });
+    return;
+  }
+  res.json({ status: "success", message: "ranking remain unchanged" });
 });
 
 let onlineUsers = [];
@@ -165,9 +168,10 @@ io.on("connection", (socket) => {
     onlineUsers = [];
   });
 
-  socket.on("send affect other", (username) => {
+  socket.on("send affect other", (username) =>{
     io.emit("affect other", username);
   });
+
 });
 
 httpServer.listen(8000, () => {
