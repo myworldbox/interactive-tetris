@@ -76,8 +76,7 @@
 .gradient-border {
 	--border-width: 3px;
 	align-items: center;
-	box-shadow: 7px 0 5px -5px #333;
-	background-color: #222;
+	background-color: #ffffff;
 	border-radius: var(--border-width);
 	justify-content: center;
 	position: relative;
@@ -128,21 +127,21 @@
 }
 
 .lines-grid {
-	box-shadow: 7px 0 5px -5px #333;
-	background-color: rgb(45, 45, 45);
+	background-color: rgb(84, 18, 65);
 	margin-bottom: 10px;
-	height: 80px;
+	height: 50px;
 	flex: 2;
 }
 
 .mini-grid {
-	box-shadow: 7px 0 5px -5px #333;
-	background-color: rgb(44, 44, 42);
+	background-color: rgb(48, 24, 67);
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0px 0px 10px 5px;
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	border: #ebeef5 solid 1px;
 }
 
 .mini-grid div {
@@ -151,11 +150,10 @@
 }
 
 .grid {
-	background-color: rgb(45, 45, 45);
+	background-color: rgb(0, 0, 0);
 	display: flex;
 	flex-wrap: wrap;
 	height: 400px;
-	box-shadow: 7px 0 5px -5px #333;
 }
 
 .grid div {
