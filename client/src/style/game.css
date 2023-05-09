@@ -1,6 +1,6 @@
 .game-page {
 	display: none;
-	background: linear-gradient(90deg, #b9ddfc 0%, #8cc8fb 35%, #d8c1f9 100%);
+	background: linear-gradient(90deg, #141617 0%, #e7fb8c 35%, #04650f 100%);
 	height: 100%;
 }
 
@@ -184,7 +184,7 @@
 	animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))
 		forwards;
 	transform-origin: left center;
-	background: linear-gradient(0.25turn, #409eff, 20%, #67c23a);
+	background: linear-gradient(0.25turn, #aba957, 20%, #262a25);
 	display: flex;
 	flex-wrap: wrap;
 }
