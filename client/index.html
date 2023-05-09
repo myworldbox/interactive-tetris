@@ -78,7 +78,7 @@
         <div class="right">
           <p class="DESINS">Gameplay:</p>
           <p style="font-size: 16px">This is a typical Tetris Game which you get points from clearing a Row.
-            <br>However, your vision will be interrupted by a flashing zombie.
+            <br>However, your component will be punlished with speeding up the block while you cleared a Row.
             <br>Get Ready For You Eye Speed and Hand Speed!!!!
           </p>
           <hr />
@@ -374,7 +374,7 @@
         <h1 class="game-h1">Interactive</h1>
         <h1 class="game-h1">Tetris</h1>
         <h1 class="game-h4">Time:<span class="timer">180</span><span> seconds</span></h1>
-        <canvas width="1000" height="700"></canvas>
+        <canvas width="500" height="120"></canvas>
       </div>
 
       <div class="board-right">
@@ -637,6 +637,42 @@
 
   <div class="gameover-page">
     <div class="card">
+      <section class="card-info card-section">
+        <section class="user row">
+          <h1 class="user-header" id="user" style="border: #00e1ff;"></h1>
+        </section>
+        <h1>VS</h1>
+
+        <div>
+          <h1 id="opponent" style="border: #00e1ff;"></h1>
+        </div>
+        <hr />
+        <div>
+          <h1 id="result"></h1>
+        </div>
+
+        <section class="statistics">
+          <article class="statistic">
+            <h4 class="statistic-title">Cleared</h4>
+            <h3 class="statistic-value" id="lines"></h3>
+            <h4 class="statistic-title">Lines</h4>
+          </article>
+        </section>
+
+        <div class="dial">
+          <h1 class="dial-title">SCORE</h1>
+          <h2 class="dial-value" id="score"></h2>
+        </div>
+        <div style="font-size: 30px">
+          <span style="color: #ff0000">T</span>
+          <span style="color: #f7a102">E</span>
+          <span style="color: #f5f82a">T</span>
+          <span style="color: #73fc24">R</span>
+          <span style="color: #00e1ff">I</span>
+          <span style="color: #ea00ff">S</span>
+        </div>
+      </section>
+
       <section class="card-details card-section">
         <h1 class="menu" style="color: black">Best Players:</h1>
 
@@ -680,29 +716,6 @@
 
         <button class="custom-btn btn-start" id="restart-btn">Restart</button>
       </section>
-      
-      <section class="card-info card-section">
-        <section class="user row">
-          <h1 class="user-header" id="user" style="border: #00e1ff;"></h1>
-        </section>
-        <h1>VS</h1>
-
-        <div>
-          <h1 id="opponent" style="border: #00e1ff;"></h1>
-        </div>
-        <hr />
-        <div>
-          <h1 id="result"></h1>
-        </div>
-
-
-        <div class="dial">
-          <h1 class="dial-title">SCORE</h1>
-          <h2 class="dial-value" id="score"></h2>
-        </div>
-      </section>
-
-      
     </div>
   </div>
 
